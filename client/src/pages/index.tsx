@@ -20,14 +20,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.svg' />
 			</Head>
 			<main className='flex flex-col justify-center items-center min-h-screen'>
-				<Image alt='TSL365 - logo' src={Logo} />
-				<Input name='login' label='Login:' />
-				<Input name='email' label='E-mail:' />
-				<Button onClick={() => console.log('works')} text='ZALOGUJ się' />
-				<AltLink
-					disabled={true}
-					text='Chcę stworzyć nowe konto'
-					href='/#'></AltLink>
+				<h1>/home</h1>
 			</main>
 		</>
 	);

@@ -3,7 +3,7 @@ import React from 'react';
 type ButtonProps = {
 	text: string;
 	disabled?: boolean;
-	onClick: (e: any) => void;
+	onClick: (e: unknown) => void;
 };
 
 const Button = ({ disabled, text, onClick }: ButtonProps) => {
