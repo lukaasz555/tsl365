@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '../assets/logo.svg';
 
 export default function Home() {
 	return (
@@ -12,9 +14,10 @@ export default function Home() {
 					content='TSL365 is an app for the Transport, Shipping and Logistics industry'
 				/>
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
-				<link rel='icon' href='/favicon.ico' />
+				<link rel='icon' href='/favicon.svg' />
 			</Head>
-			<main className='flex justify-center items-center min-h-screen'>
+			<main className='flex flex-col justify-center items-center min-h-screen'>
+				<Image alt='TSL365 - logo' src={Logo} />
 				<h1>/home</h1>
 			</main>
 		</>
