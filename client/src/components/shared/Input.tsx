@@ -6,6 +6,8 @@ type InputProps = {
 	label: string;
 	disabled?: boolean;
 	type?: string;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	value: string;
 };
 
 // TODO:
@@ -13,7 +15,7 @@ type InputProps = {
 
 const Input = ({ disabled, type = 'text', ...props }: InputProps) => {
 	return (
-		<div className='min-w-[200px] flex flex-col my-2'>
+		<div className='min-w-[200px] flex flex-col'>
 			<label
 				htmlFor={props.name}
 				className={clsx('font-poppins text-m', disabled && 'text-gray')}>
@@ -23,9 +25,11 @@ const Input = ({ disabled, type = 'text', ...props }: InputProps) => {
 				name={props.name}
 				id={props.name}
 				disabled={disabled}
-				type='text'
+				value={props.value}
+				onChange={props.onChange}
+				type={type}
 				className={clsx(
-					'text-l border-2 border-solid px-2 py-1',
+					'text-l border-[1px] border-solid px-2 py-1',
 					disabled ? 'border-gray active:outline-none' : 'border-black'
 				)}
 			/>

@@ -1,18 +1,14 @@
 import Head from 'next/head';
-import styles from '@/styles/Home.module.css';
-import Link from 'next/link';
 import Image from 'next/image';
-import Logo from '../assets/logo.svg';
-import Button from '../components/shared/Button';
-import Input from '../components/shared/Input';
-import AltLink from '@/components/shared/AltLink';
+import Logo from '../../assets/logo.svg';
 import LoginForm from '@/components/LoginForm/LoginForm';
+import Subheader from '@/components/shared/Subheader';
 
 export default function Home() {
 	return (
 		<>
 			<Head>
-				<title>TSL365</title>
+				<title>Zaloguj się do TSL365</title>
 				<meta
 					name='description'
 					content='TSL365 is an app for the Transport, Shipping and Logistics industry'
@@ -21,7 +17,11 @@ export default function Home() {
 				<link rel='icon' href='/favicon.svg' />
 			</Head>
 			<main className='flex flex-col justify-center items-center min-h-screen'>
-				<h1>/home</h1>
+				<Image className='mb-8' alt='TSL365 - logo' src={Logo} />
+				<section className='shadow-default min-w-[300px] flex flex-col rounded-m items-center px-8 pt-6 pb-8'>
+					<Subheader text='Logowanie' />
+					<LoginForm />
+				</section>
 			</main>
 		</>
 	);

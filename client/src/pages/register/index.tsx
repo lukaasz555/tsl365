@@ -1,12 +1,7 @@
 import Head from 'next/head';
-import styles from '@/styles/Home.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../assets/logo.svg';
-import Button from '../components/shared/Button';
-import Input from '../components/shared/Input';
-import AltLink from '@/components/shared/AltLink';
-import LoginForm from '@/components/LoginForm/LoginForm';
 
 export default function Home() {
 	return (
@@ -21,7 +16,7 @@ export default function Home() {
 				<link rel='icon' href='/favicon.svg' />
 			</Head>
 			<main className='flex flex-col justify-center items-center min-h-screen'>
-				<h1>/home</h1>
+				<h1>/register</h1>
 			</main>
 		</>
 	);
