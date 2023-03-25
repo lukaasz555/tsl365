@@ -1,6 +1,9 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import Switch from '@/components/shared/Switch';
+import Logo from '../assets/logo.svg';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
 	return (
@@ -15,7 +18,9 @@ export default function Home() {
 				<link rel='icon' href='/favicon.svg' />
 			</Head>
 			<main className='flex flex-col justify-center items-center min-h-screen'>
-				<h1>/home</h1>
+				<Link href={`/#`}>
+					<Image src={Logo} alt='TSL365 logo' />
+				</Link>
 			</main>
 		</>
 	);
