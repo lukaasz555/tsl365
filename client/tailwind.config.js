@@ -22,11 +22,24 @@ module.exports = {
 			poppins: ['Poppins', 'sans-serif'],
 			montserrat: ['Montserrat', 'sans-serif'],
 		},
+		fontSize: {
+			xxl: '24px',
+			xl: '21px',
+			l: '18px',
+			m: '16px',
+			s: '13px',
+			xs: '11px',
+		},
 		borderRadius: {
 			max: '25px',
 			l: '12px',
 			m: '8px',
 			s: '4px',
+		},
+		extend: {
+			boxShadow: {
+				default: '4px 8px 22px rgba(0, 0, 0, 0.15)',
+			},
 		},
 	},
 	plugins: [],

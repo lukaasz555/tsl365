@@ -3,6 +3,9 @@ import styles from '@/styles/Home.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import Logo from '../assets/logo.svg';
+import Button from '../components/shared/Button';
+import Input from '../components/shared/Input';
+import AltLink from '@/components/shared/AltLink';
 
 export default function Home() {
 	return (
@@ -18,7 +21,13 @@ export default function Home() {
 			</Head>
 			<main className='flex flex-col justify-center items-center min-h-screen'>
 				<Image alt='TSL365 - logo' src={Logo} />
-				<h1>/home</h1>
+				<Input name='login' label='Login:' />
+				<Input name='email' label='E-mail:' />
+				<Button onClick={() => console.log('works')} text='ZALOGUJ się' />
+				<AltLink
+					disabled={true}
+					text='Chcę stworzyć nowe konto'
+					href='/#'></AltLink>
 			</main>
 		</>
 	);
