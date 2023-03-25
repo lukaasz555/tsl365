@@ -1,12 +1,6 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
-import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '../assets/logo.svg';
-import Button from '../components/shared/Button';
-import Input from '../components/shared/Input';
-import AltLink from '@/components/shared/AltLink';
-import LoginForm from '@/components/LoginForm/LoginForm';
+import Switch from '@/components/shared/Switch';
 
 export default function Home() {
 	return (
