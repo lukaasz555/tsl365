@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 
 type SwitchProps = {
-	onClick: (e: React.MouseEvent) => void;
+	onClick: () => void;
 	text?: string;
 };
 
@@ -12,11 +12,11 @@ const Switch = ({ onClick, text }: SwitchProps) => {
 	function handleClick(e: React.MouseEvent): void {
 		e.preventDefault();
 		setClicked(!isClicked);
-		// function from parent component...
+		onClick();
 	}
 
 	return (
-		<div className='flex gap-x-5 items-center'>
+		<div className={clsx('flex items-center', text ? 'gap-x-5' : '')}>
 			<p className='font-poppins'>{text}</p>
 			<button
 				className={clsx(

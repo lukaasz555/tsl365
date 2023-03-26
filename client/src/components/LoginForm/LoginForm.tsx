@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import Input from '../shared/Input';
 import Button from '../shared/Button';
 import AltLink from '../shared/AltLink';
-import Subheader from '../shared/Subheader';
 
 // TODO:
 // email validation;
