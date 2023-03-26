@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Input from '../shared/Input';
 import Button from '../shared/Button';
 import AltLink from '../shared/AltLink';
@@ -14,6 +14,7 @@ const LoginForm = () => {
 		loginPassword: '',
 	});
 	const [errorMessage, setErrorMessage] = useState('');
+	const inputRef = useRef<HTMLInputElement>(null);
 
 	function handleFormChanges(e: React.ChangeEvent<HTMLInputElement>): void {
 		setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -31,6 +32,12 @@ const LoginForm = () => {
 		}
 	}
 
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.focus();
+		}
+	}, []);
+
 	return (
 		<form className='flex flex-col items-center'>
 			<section className='flex flex-col gap-y-2 mb-6'>
@@ -40,6 +47,7 @@ const LoginForm = () => {
 					name='loginEmail'
 					label='E-mail:'
 					type='email'
+					ref={inputRef}
 				/>
 				<Input
 					onChange={handleFormChanges}
