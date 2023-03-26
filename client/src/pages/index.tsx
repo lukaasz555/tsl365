@@ -3,8 +3,19 @@ import styles from '@/styles/Home.module.css';
 import Logo from '../assets/logo.svg';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export default function Home() {
+	const isUserLoggedIn = false;
+	const router = useRouter();
+
+	useEffect(() => {
+		if (!isUserLoggedIn) {
+			router.replace('/login');
+		}
+	}, []);
+
 	return (
 		<>
 			<Head>
