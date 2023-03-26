@@ -10,6 +10,7 @@ const Switch = ({ onClick, text }: SwitchProps) => {
 	const [isClicked, setClicked] = useState(false);
 
 	function handleClick(e: React.MouseEvent): void {
+		e.preventDefault();
 		setClicked(!isClicked);
 		// function from parent component...
 	}

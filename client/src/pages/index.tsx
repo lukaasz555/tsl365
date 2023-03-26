@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
-import Switch from '@/components/shared/Switch';
 import Logo from '../assets/logo.svg';
 import Link from 'next/link';
 import Image from 'next/image';

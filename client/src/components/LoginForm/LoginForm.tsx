@@ -20,14 +20,15 @@ const LoginForm = () => {
 	}
 
 	function handleClick(e: React.MouseEvent): void {
+		e.preventDefault();
 		const { loginEmail: login, loginPassword: pw } = form;
+
 		if (login.trim() !== '' && pw.trim() !== '') {
 			console.log(form);
 			setErrorMessage('');
 		} else {
 			setErrorMessage('Musisz podać dane do logowania');
 		}
-		e.preventDefault();
 	}
 
 	return (

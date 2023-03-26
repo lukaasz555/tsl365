@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Logo from '../../assets/logo.svg';
 import LoginForm from '@/components/LoginForm/LoginForm';
 import Subheader from '@/components/shared/Subheader';
-
+import Link from 'next/link';
 export default function Home() {
 	return (
 		<>
@@ -17,7 +17,9 @@ export default function Home() {
 				<link rel='icon' href='/favicon.svg' />
 			</Head>
 			<main className='flex flex-col justify-center items-center min-h-screen'>
-				<Image className='mb-8' alt='TSL365 - logo' src={Logo} />
+				<Link href={`/#`} className='mb-8'>
+					<Image src={Logo} alt='TSL365 logo' />
+				</Link>
 				<section className='shadow-default min-w-[300px] flex flex-col rounded-m items-center px-8 pt-6 pb-8'>
 					<Subheader text='Logowanie' />
 					<LoginForm />
