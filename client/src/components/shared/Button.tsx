@@ -4,13 +4,15 @@ type ButtonProps = {
 	text: string;
 	disabled?: boolean;
 	onClick: (e: React.MouseEvent) => void;
+	type?: 'button' | 'submit' | 'reset' | undefined;
 };
 
-const Button = ({ disabled, text, onClick }: ButtonProps) => {
+const Button = ({ disabled, text, onClick, type = 'button' }: ButtonProps) => {
 	return (
 		<button
 			disabled={disabled}
 			onClick={onClick}
+			type={type}
 			className='font-poppins lowercase bg-accent 
 			hover:bg-accentHover active:bg-accentHover focus:bg-accentHover 
 			disabled:bg-gray disabled:text-[#FCF7F8] 
