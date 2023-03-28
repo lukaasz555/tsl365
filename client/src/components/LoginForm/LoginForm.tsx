@@ -2,18 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import Input from '../shared/Input';
 import Button from '../shared/Button';
 import AltLink from '../shared/AltLink';
-import { Formik, Form, Field, useFormik } from 'formik';
-import * as Yup from 'yup';
-
-const validateLogin = Yup.object({
-	loginEmail: Yup.string()
-		.email('Wprowadź poprawny e-mail')
-		.required('E-mail jest wymagany'),
-	loginPassword: Yup.string()
-		.min(7, 'Hasło ma min. 7 znaków')
-		.max(36, 'Hasło moze mieć maks. 36 znaków')
-		.required('Hasło jest wymagane'),
-});
+import { useFormik } from 'formik';
+import { validateLogin } from '@/helpers/validations/LoginForm';
+import FormErrorMessage from '../shared/FormErrorMessage';
 
 const LoginForm = () => {
 	const inputRef = useRef<HTMLInputElement>(null);
@@ -52,7 +43,7 @@ const LoginForm = () => {
 					ref={inputRef}
 				/>
 				{formik.errors.loginEmail && formik.touched.loginEmail ? (
-					<p className='text-error mb-2 w-full'>{formik.errors.loginEmail}</p>
+					<FormErrorMessage text={formik.errors.loginEmail} />
 				) : null}
 				<Input
 					onChange={formik.handleChange}
@@ -62,9 +53,7 @@ const LoginForm = () => {
 					type='password'
 				/>
 				{formik.errors.loginPassword && formik.touched.loginPassword ? (
-					<p className='text-error mb-2 w-full'>
-						{formik.errors.loginPassword}
-					</p>
+					<FormErrorMessage text={formik.errors.loginPassword} />
 				) : null}
 			</section>
 			<section className='flex flex-col items-center gap-y-3'>

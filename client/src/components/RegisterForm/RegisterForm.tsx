@@ -4,35 +4,11 @@ import Input from '../shared/Input';
 import Button from '../shared/Button';
 import Link from 'next/link';
 import Switch from '../shared/Switch';
-import { Formik, Form, Field, useFormik } from 'formik';
-import * as Yup from 'yup';
+import { useFormik } from 'formik';
 import FormErrorMessage from '../shared/FormErrorMessage';
-
-// TODOs:
-// form validations;
-// request;
-
-const validateRegister = Yup.object({
-	registerName: Yup.string()
-		.min(3, 'Imię powinno zawierać min. 3 znaki')
-		.max(46, 'Wprowadzono zbyt wiele znaków')
-		.required('Musisz podać imię'),
-	registerLastname: Yup.string()
-		.min(3, 'Nazwisko powinno zawierać min. 3 znaki')
-		.max(46, 'Wprowadzono zbyt wiele znaków')
-		.required('Musisz podać nazwisko'),
-	registerEmail: Yup.string()
-		.email('Wprowadź poprawny e-mail')
-		.required('E-mail jest wymagany'),
-	registerPassword: Yup.string()
-		.min(7, 'Co najmniej 7 znaków')
-		.max(46, 'Wprowadzono zbyt wiele znaków')
-		.required('Musisz podać hasło'),
-	registerConsent: Yup.boolean().oneOf([true], 'Musisz zaakceptować regulamin'),
-});
+import { validateRegister } from '@/helpers/validations/RegisterForm';
 
 const RegisterForm = () => {
-	// const [isConsent, setConsent] = useState(false);
 	const [errorMessage, setErrorMessage] = useState('');
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -57,14 +33,6 @@ const RegisterForm = () => {
 		}
 	}, []);
 
-	const {
-		registerName,
-		registerLastname,
-		registerEmail,
-		registerPassword,
-		registerConfirmPassword,
-	} = formik.values;
-
 	function handleClick(e: React.MouseEvent): void {
 		e.preventDefault();
 		formik.handleSubmit();
@@ -78,7 +46,7 @@ const RegisterForm = () => {
 				<Input
 					label='Imię:'
 					name='registerName'
-					value={registerName}
+					value={formik.values.registerName}
 					ref={inputRef}
 					onChange={formik.handleChange}
 				/>
@@ -99,7 +67,7 @@ const RegisterForm = () => {
 				<Input
 					label='Adres e-mail:'
 					name='registerEmail'
-					value={registerEmail}
+					value={formik.values.registerEmail}
 					onChange={formik.handleChange}
 					type='email'
 				/>
@@ -111,7 +79,7 @@ const RegisterForm = () => {
 				<Input
 					label='Hasło:'
 					name='registerPassword'
-					value={registerPassword}
+					value={formik.values.registerPassword}
 					onChange={formik.handleChange}
 					type='password'
 				/>
@@ -121,7 +89,7 @@ const RegisterForm = () => {
 				<Input
 					label='Powtórz hasło:'
 					name='registerConfirmPassword'
-					value={registerConfirmPassword}
+					value={formik.values.registerConfirmPassword}
 					onChange={formik.handleChange}
 					type='password'
 				/>
