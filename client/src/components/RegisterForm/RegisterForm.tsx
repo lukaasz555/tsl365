@@ -49,6 +49,7 @@ const RegisterForm = () => {
 					value={formik.values.registerName}
 					ref={inputRef}
 					onChange={formik.handleChange}
+					error={formik.errors.registerName}
 				/>
 				{formik.errors.registerName && formik.touched.registerName ? (
 					<FormErrorMessage text={formik.errors.registerName} />
@@ -58,6 +59,7 @@ const RegisterForm = () => {
 					name='registerLastname'
 					value={formik.values.registerLastname}
 					onChange={formik.handleChange}
+					error={formik.errors.registerLastname}
 				/>
 				{formik.errors.registerLastname && formik.touched.registerLastname ? (
 					<FormErrorMessage text={formik.errors.registerLastname} />
@@ -70,6 +72,7 @@ const RegisterForm = () => {
 					value={formik.values.registerEmail}
 					onChange={formik.handleChange}
 					type='email'
+					error={formik.errors.registerEmail}
 				/>
 				{formik.errors.registerEmail && formik.touched.registerEmail ? (
 					<FormErrorMessage text={formik.errors.registerEmail} />
@@ -82,6 +85,7 @@ const RegisterForm = () => {
 					value={formik.values.registerPassword}
 					onChange={formik.handleChange}
 					type='password'
+					error={formik.errors.registerPassword}
 				/>
 				{formik.errors.registerPassword && formik.touched.registerPassword ? (
 					<FormErrorMessage text={formik.errors.registerPassword} />
@@ -92,6 +96,7 @@ const RegisterForm = () => {
 					value={formik.values.registerConfirmPassword}
 					onChange={formik.handleChange}
 					type='password'
+					error={formik.errors.registerPassword}
 				/>
 				{formik.values.registerPassword !==
 				formik.values.registerConfirmPassword ? (
