@@ -8,6 +8,7 @@ type InputProps = {
 	type?: string;
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 	value: string;
+	error?: string;
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -29,7 +30,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 					type={type}
 					className={clsx(
 						'text-l border-[1px] border-solid px-2 py-1',
-						disabled ? 'border-gray active:outline-none' : 'border-black'
+						disabled
+							? 'border-gray active:outline-none'
+							: props.error
+							? 'error'
+							: 'border-black'
 					)}
 				/>
 			</div>

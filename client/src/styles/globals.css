@@ -26,9 +26,12 @@ a:focus {
 	outline: 1px dashed #2a2b2a;
 }
 
-input:focus,
-input:active {
+input:is(:focus, :active) {
 	outline: 2px solid #0d97ae;
+}
+
+input.error {
+	outline: 2px solid #b23a48;
 }
 
 button:active {

@@ -41,6 +41,7 @@ const LoginForm = () => {
 					label='E-mail:'
 					type='email'
 					ref={inputRef}
+					error={formik.errors.loginEmail}
 				/>
 				{formik.errors.loginEmail && formik.touched.loginEmail ? (
 					<FormErrorMessage text={formik.errors.loginEmail} />
@@ -51,6 +52,7 @@ const LoginForm = () => {
 					name='loginPassword'
 					label='Hasło:'
 					type='password'
+					error={formik.errors.loginPassword}
 				/>
 				{formik.errors.loginPassword && formik.touched.loginPassword ? (
 					<FormErrorMessage text={formik.errors.loginPassword} />
