@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import clsx from 'clsx';
+import FormErrorMessage from './FormErrorMessage';
 
 type InputProps = {
 	name: string;
@@ -12,7 +13,7 @@ type InputProps = {
 };
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-	({ disabled, type = 'text', ...props }, ref) => {
+	({ disabled, type = 'text', error, ...props }, ref) => {
 		return (
 			<div className='min-w-[200px] flex flex-col'>
 				<label
@@ -32,11 +33,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 						'text-l border-[1px] border-solid px-2 py-1',
 						disabled
 							? 'border-gray active:outline-none'
-							: props.error
+							: error
 							? 'error'
 							: 'border-black'
 					)}
 				/>
+				{error ? <FormErrorMessage text={error} /> : null}
 			</div>
 		);
 	}

@@ -51,9 +51,7 @@ const RegisterForm = () => {
 					onChange={formik.handleChange}
 					error={formik.errors.registerName}
 				/>
-				{formik.errors.registerName && formik.touched.registerName ? (
-					<FormErrorMessage text={formik.errors.registerName} />
-				) : null}
+
 				<Input
 					label='Nazwisko:'
 					name='registerLastname'
@@ -61,9 +59,6 @@ const RegisterForm = () => {
 					onChange={formik.handleChange}
 					error={formik.errors.registerLastname}
 				/>
-				{formik.errors.registerLastname && formik.touched.registerLastname ? (
-					<FormErrorMessage text={formik.errors.registerLastname} />
-				) : null}
 			</section>
 			<section className='my-3'>
 				<Input
@@ -74,9 +69,6 @@ const RegisterForm = () => {
 					type='email'
 					error={formik.errors.registerEmail}
 				/>
-				{formik.errors.registerEmail && formik.touched.registerEmail ? (
-					<FormErrorMessage text={formik.errors.registerEmail} />
-				) : null}
 			</section>
 			<section className='flex flex-col gap-y-3  md:flex-row gap-x-4 w-full'>
 				<Input
@@ -87,9 +79,7 @@ const RegisterForm = () => {
 					type='password'
 					error={formik.errors.registerPassword}
 				/>
-				{formik.errors.registerPassword && formik.touched.registerPassword ? (
-					<FormErrorMessage text={formik.errors.registerPassword} />
-				) : null}
+
 				<Input
 					label='Powtórz hasło:'
 					name='registerConfirmPassword'
@@ -98,26 +88,27 @@ const RegisterForm = () => {
 					type='password'
 					error={formik.errors.registerPassword}
 				/>
-				{formik.values.registerPassword !==
-				formik.values.registerConfirmPassword ? (
-					<FormErrorMessage text='Hasła nie są takie same' />
-				) : null}
 			</section>
-			<section className='flex mt-6 md:mt-4 items-center justify-center md:justify-start my-2'>
-				<Switch
-					onClick={() =>
-						(formik.values.registerConsent = !formik.values.registerConsent)
-					}
-				/>{' '}
-				<p className='ml-2'>
-					Akceptuję{' '}
-					<Link href={`/#`} className='text-accent hover:underline'>
-						regulamin platformy
-					</Link>
-				</p>
-				{formik.errors.registerConsent ? (
-					<FormErrorMessage text={formik.errors.registerConsent} />
-				) : null}
+			<section className='flex mt-6 md:mt-4 flex-col items-center justify-center md:justify-start my-2'>
+				<div className='flex items-center justify-center md:justify-start my-2'>
+					<Switch
+						error={formik.errors.registerConsent}
+						onClick={() =>
+							(formik.values.registerConsent = !formik.values.registerConsent)
+						}
+					/>{' '}
+					<p className='ml-2'>
+						Akceptuję{' '}
+						<Link href={`/#`} className='text-accent hover:underline'>
+							regulamin platformy
+						</Link>
+					</p>
+				</div>
+				<div>
+					{formik.errors.registerConsent ? (
+						<FormErrorMessage text={formik.errors.registerConsent} />
+					) : null}
+				</div>
 			</section>
 			<p className='text-error text-center mb-2'>{errorMessage}</p>
 			<section className='flex justify-center mt-4'>

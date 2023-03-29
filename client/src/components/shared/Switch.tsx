@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
+import FormErrorMessage from './FormErrorMessage';
 
 type SwitchProps = {
 	onClick: () => void;
 	text?: string;
+	error?: string;
 };
 
-const Switch = ({ onClick, text }: SwitchProps) => {
+const Switch = ({ onClick, text, error }: SwitchProps) => {
 	const [isClicked, setClicked] = useState(false);
 
 	function handleClick(e: React.MouseEvent): void {
@@ -16,7 +18,7 @@ const Switch = ({ onClick, text }: SwitchProps) => {
 	}
 
 	return (
-		<div className={clsx('flex items-center', text ? 'gap-x-5' : '')}>
+		<div className={clsx('flex items-start ', text ? 'gap-x-5' : '')}>
 			<p className='font-poppins'>{text}</p>
 			<button
 				className={clsx(
