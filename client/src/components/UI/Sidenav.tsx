@@ -30,19 +30,19 @@ const Sidenav = ({ isOpen, setOpen }: SidenavProps) => {
 				<nav
 					className='absolute w-full flex flex-col items-end px-4 gap-y-2 font-montserrat font-thin uppercase text-black text-l mt-[150px]
                 '>
-					<Link href={`/#`} className='hover:text-accent'>
+					<Link href={`/`} className='hover:text-accent'>
 						start
 					</Link>
-					<Link href={`/#`} className='hover:text-accent'>
+					<Link href={`/orders`} className='hover:text-accent'>
 						zlecenia
 					</Link>
-					<Link href={`/#`} className='hover:text-accent'>
+					<Link href={`/drivers`} className='hover:text-accent'>
 						kierowcy
 					</Link>
-					<Link href={`/#`} className='hover:text-accent'>
+					<Link href={`/companies`} className='hover:text-accent'>
 						firmy
 					</Link>
-					<Link href={`/#`} className='hover:text-accent'>
+					<Link href={`/account`} className='hover:text-accent'>
 						moje konto
 					</Link>
 				</nav>

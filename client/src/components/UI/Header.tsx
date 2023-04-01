@@ -20,19 +20,27 @@ const Header = () => {
 						<Image src={hamburgerIcon} alt='open menu' />
 					</button>
 					<nav className='hidden lg:flex gap-x-8 font-montserrat font-thin uppercase text-white text-l '>
-						<Link href={`/#`} className='hover:underline underline-offset-4'>
+						<Link href={`/`} className='hover:underline underline-offset-4'>
 							start
 						</Link>
-						<Link href={`/#`} className='hover:underline underline-offset-4'>
+						<Link
+							href={`/orders`}
+							className='hover:underline underline-offset-4'>
 							zlecenia
 						</Link>
-						<Link href={`/#`} className='hover:underline underline-offset-4'>
+						<Link
+							href={`/drivers`}
+							className='hover:underline underline-offset-4'>
 							kierowcy
 						</Link>
-						<Link href={`/#`} className='hover:underline underline-offset-4'>
+						<Link
+							href={`/companies`}
+							className='hover:underline underline-offset-4'>
 							firmy
 						</Link>
-						<Link href={`/#`} className='hover:underline underline-offset-4'>
+						<Link
+							href={`/account`}
+							className='hover:underline underline-offset-4'>
 							moje konto
 						</Link>
 					</nav>
