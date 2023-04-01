@@ -5,16 +5,17 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import Layout from '@/layouts/main/layout';
 
 export default function Home() {
 	const isUserLoggedIn = false;
 	const router = useRouter();
 
-	useEffect(() => {
-		if (!isUserLoggedIn) {
-			router.replace('/login');
-		}
-	}, []);
+	// useEffect(() => {
+	// 	if (!isUserLoggedIn) {
+	// 		router.replace('/login');
+	// 	}
+	// }, []);
 
 	return (
 		<>
@@ -27,11 +28,13 @@ export default function Home() {
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.svg' />
 			</Head>
-			<main className='flex flex-col justify-center items-center min-h-screen'>
-				<Link href={`/#`}>
-					<Image src={Logo} alt='TSL365 logo' />
-				</Link>
-			</main>
+			<Layout>
+				<main className='flex flex-col justify-center items-center min-h-[70vh]'>
+					<Link href={`/#`}>
+						<Image src={Logo} alt='TSL365 logo' />
+					</Link>
+				</main>
+			</Layout>
 		</>
 	);
 }
