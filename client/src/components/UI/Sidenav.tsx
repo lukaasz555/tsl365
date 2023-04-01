@@ -11,7 +11,6 @@ type SidenavProps = {
 };
 
 const Sidenav = ({ isOpen, setOpen }: SidenavProps) => {
-	console.log(isOpen);
 	return (
 		<aside
 			className={clsx(
