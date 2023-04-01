@@ -43,9 +43,6 @@ const LoginForm = () => {
 					ref={inputRef}
 					error={formik.errors.loginEmail}
 				/>
-				{formik.errors.loginEmail && formik.touched.loginEmail ? (
-					<FormErrorMessage text={formik.errors.loginEmail} />
-				) : null}
 				<Input
 					onChange={formik.handleChange}
 					value={formik.values.loginPassword}
@@ -54,9 +51,6 @@ const LoginForm = () => {
 					type='password'
 					error={formik.errors.loginPassword}
 				/>
-				{formik.errors.loginPassword && formik.touched.loginPassword ? (
-					<FormErrorMessage text={formik.errors.loginPassword} />
-				) : null}
 			</section>
 			<section className='flex flex-col items-center gap-y-3'>
 				<Button onClick={handleClick} text='ZALOGUJ się' type='submit' />
